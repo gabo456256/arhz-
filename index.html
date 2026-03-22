@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi niña especial 🌻</title>
+    <style>
+        /* [Tu CSS base optimizado] */
+        *, *::after, *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-color: #030303;
+            --fl-speed: 0.8s;
+            --speed-leaf: 2s;
+        }
+
+        body {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--dark-color);
+            overflow: hidden;
+            perspective: 1000px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Título romántico */
+        .title {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            text-align: center;
+            color: #ffd700;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            z-index: 100;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .night {
+            position: fixed;
+            left: 50%; top: 0;
+            transform: translateX(-50%);
+            width: 100%; height: 100%;
+            background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+                              radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)),
+                              linear-gradient(90deg, #000, #111);
+            z-index: -1;
+        }
+
+        /* Estilos de las Estrellas Fugaces */
+        .shooting-stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: shootingStar 3s linear infinite;
+        }
+
+        @keyframes shootingStar {
+            0% { opacity: 0; transform: translateX(0) translateY(0) rotate(45deg); }
+            10% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(120vw) translateY(50vh) rotate(10deg); }
+        }
+
+        /* Flores y Girasoles */
+        .flowers { position: relative; transform: scale(0.9); z-index: 2; }
+        .flower { position: absolute; bottom: 10vmin; transform-origin: bottom center; }
+
+        .flower__leaf {
+            position: absolute;
+            bottom: 0; left: 50%;
+            width: 20vmin; height: 5vmin;
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            background-color: #ffd700;
+            background-image: linear-gradient(to top, #ff8c00, #ffd700);
+            transform-origin: bottom center;
+            box-shadow: inset 0 0 1vmin rgba(0,0,0,0.2);
+            animation: blooming-flower 2s backwards;
+        }
+
+        .flower__white-circle {
+            position: absolute;
+            left: -4vmin; top: -4vmin;
+            width: 8vmin; height: 8vmin;
+            border-radius: 50%;
+            background: #4b2c20;
+            z-index: 10;
+            border: 2px solid #361a0f;
+        }
+
+        .flower__line {
+            height: 55vmin; width: 1.5vmin;
+            background-image: linear-gradient(to top, #2d5016, #6b8e23);
+            animation: grow-flower-tree 3s backwards;
+        }
+
+        @keyframes grow-flower-tree { 0% { height: 0; } }
+        @keyframes blooming-flower { 0% { transform: scale(0); } }
+
+        /* Botón para activar música (Navegadores bloquean auto-play) */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 215, 0, 0.2);
+            color: white;
+            border: 1px solid gold;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">Flores amarillas para la niña más linda 🌻</div>
+
+    <button class="music-control" onclick="toggleMusic()">🎵</button>
+    
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="night"></div>
+    
+    <div class="shooting-stars">
+        <div class="shooting-star" style="top:10%; left:-10%; animation-delay:0s;"></div>
+        <div class="shooting-star" style="top:30%; left:-10%; animation-delay:2s;"></div>
+        <div class="shooting-star" style="top:5%; left:-10%; animation-delay:4s;"></div>
+    </div>
+
+    <div class="flowers">
+        <div class="flower" style="left: -20vmin;">
+            <div class="flower__line"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(0deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(45deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(90deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(135deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(180deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(225deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(270deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(315deg);"></div>
+            <div class="flower__white-circle" style="transform: translate(-50%, -650%); left: 0.8vmin;"></div>
+        </div>
+
+        <div class="flower" style="left: 0; transform: scale(1.2);">
+            <div class="flower__line" style="height: 70vmin;"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(0deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(45deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(90deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(135deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(180deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(225deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(270deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(315deg);"></div>
+            <div class="flower__white-circle" style="transform: translate(-50%, -850%); left: 0.8vmin;"></div>
+        </div>
+
+        <div class="flower" style="left: 20vmin;">
+            <div class="flower__line"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(0deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(45deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(90deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(135deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(180deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(225deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(270deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -100%) rotate(315deg);"></div>
+            <div class="flower__white-circle" style="transform: translate(-50%, -650%); left: 0.8vmin;"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+        
+        // Intenta reproducir al primer clic en cualquier parte de la pantalla
+        document.body.addEventListener('click', function() {
+            const music = document.getElementById('bgMusic');
+            music.play();
+        }, { once: true });
+    </script>
+</body>
+</html>
